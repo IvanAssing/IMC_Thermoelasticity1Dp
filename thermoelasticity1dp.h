@@ -34,6 +34,7 @@ class Thermoelasticity1Dp
         Thermoelasticity1Dp(tInteger nodes, Boundary1D left, Boundary1D right, ElasticityData eData, DiffusionData dData);
 
         void plotSolution(Functor1D &analyticalSolution);
+        void printSolution(Functor1D &aT, Functor1D &aU, Functor1D &aE, Functor1D &aS, tFloat aF);
         void plotSecondarySolutions(Functor1D &AS_Strain, Functor1D &AS_Stress);
         void solver(void);
 };

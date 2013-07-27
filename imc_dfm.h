@@ -34,11 +34,13 @@ typedef long int tInteger; // Tipo Inteiro (64 bits)
 #define Q_FORMAT "%.33Qe" // Mostrar número em precisão quadrúpla com 33 casas decimais
 
 #define OUT_FLOAT_WIDTH (OUT_FLOAT_PRECISION+10)
+#define OUT_TXT 10
 
 #define STR_PAREDE_PLANA "DIFUSÃO DE CALOR EM PAREDE PLANA: d2T/dx2 = S(x)"
 #define STR_ALETA "DIFUSÃO DE CALOR EM ALETA: d2T/dx2 = m2*(T-Tinf)"
 #define STR_QML "DIFUSÃO DE QUANTIDADE DE MOVIMENTO LINEAR: mi*d2u/dx2 = C"
 #define STR_THERMOELASTICITY "TERMOELASTICIDADE LINEAR UNIDIMENSIONAL PERMANENTE"
 
+std::string print(tFloat value);
 
 #endif // IMC_DFM_H

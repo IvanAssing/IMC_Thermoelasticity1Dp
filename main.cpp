@@ -24,7 +24,7 @@ int main()
     Boundary1D left(0.0q, Dirichlet, t0);
     Boundary1D right(1.0q, Dirichlet, tl);
 
-    Thermoelasticity1Dp mesh(21, left, right, e_data, t_data);
+    Thermoelasticity1Dp mesh(20001, left, right, e_data, t_data);
 
     PolynomialQuadratic AS_t(t0, tl-t0+0.5q*q_/t_data.k, -0.5q*q_/t_data.k);
 
@@ -44,16 +44,15 @@ int main()
                          e_data.E*(-t_data.alpha*q_/(t_data.k*2.0q) - t_data.alpha*(-0.5q*q_/t_data.k))
                          );
 
-
+    tFloat AS_f = e_data.E*t_data.alpha*e_data.Ax/6.0q*(3.0q*(t0-tl) - 0.5q*q_/t_data.k);
 
     mesh.solver();
-    //mesh.thermo->plotSolution(AS_t);
-    //mesh.equationsSystem.printCoefficients();
-    //mesh.equationsSystem.printSolution();
-    //mesh.plotSolution(AS_u);
 
+    mesh.printSolution(AS_t, AS_u, AS_e, AS_s, AS_f);
+
+    mesh.thermo->plotSolution(AS_t);
+    mesh.plotSolution(AS_u);
     mesh.plotSecondarySolutions(AS_e, AS_s);
-
 
     std::cout<<std::endl<<std::endl<<std::endl;
 }
